@@ -9,47 +9,69 @@
     <header>
         <h1>Track My Meal</h1>
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <button>
-                    <a href="login.html">Login</a>
-                </button>
-            </ul>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><button><a href="login.html">Login</a></button></li>
+          </ul>
         </nav>
         <h2>Welcome to Track My Meal</h2>
-    </header>
-    <main>
+      </header>
+    
+      <main>
         <section>
-            <h2>Track Your Meals</h2>
-            <p>Use our app to log your meals and track your nutrition.</p>
-            <form action="submit_meal.php" method="POST">
-                <label for="">order id/name</label>
-                <input type="text" id="order_id" name="order_id" required>
-                <br>
-                <label for="">contact no.</label>
-                <input type="tel" id="contact_no" name="contact_no" required>
-                <br>
-                <input type="button" value="Where`s my meal" onclick="submitForm()">
-            </form>
+          <h2>Track Your Meals</h2>
+          <p>Use our app to log your meals and track your nutrition.</p>
+          <form id="mealForm" action="submit_meal.php" method="POST">
+            <label for="order_id">Order ID / Name</label>
+            <input type="text" id="order_id" name="order_id" required>
+    
+            <label for="contact_no">Contact No.</label>
+            <input type="tel" id="contact_no" name="contact_no" required>
+    
+            <button type="button" onclick="submitForm()">Where's my meal?</button>
+          </form>
         </section>
+    
         <section id="tracker">
-            
-
+          <div id="timer">
+            <h3>Timer</h3>
+            <!-- <svg id="timer-loader" viewBox="0 0 50 50">
+              <circle class="loader-circle" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+            </svg> -->
+            <p id="time">00:00</p>
+          </div>
+    
+          <div id="meal-status">
+            <h3>Meal Status</h3>
+            <p id="status">Pending</p>
+          </div>
+    
+          <div id="orderDetails">
+            <h3>Order Details</h3>
+            <p id="orderId">Order ID: 12345</p>
+            <p id="name">Name: John Doe</p>
+            <p id="address">Restaurant Name</p>
+            <p id="contact">Contact No: 9876543210</p>
+            <p id="meal">Meal: Grilled Chicken Salad</p>
+            <p id="quantity">Quantity: 2</p>
+          </div>
         </section>
+    
         <section id="why_choose_us">
-            <h2>Why Choose Us?</h2>
-            <ul>
-                <li>Easy meal tracking</li>
-                <li>Nutrition insights</li>
-                <li>User-friendly interface</li>
-            </ul>
+          <h2>Why Choose Us?</h2>
+          <ul>
+            <li>Easy meal tracking</li>
+            <li>Nutrition insights</li>
+            <li>User-friendly interface</li>
+          </ul>
         </section>
-    </main>
-    <footer>
+      </main>
+    
+      <footer>
         <p>&copy; 2023 Track My Meal. All rights reserved.</p>
-        <p>Follow us on <a href="https://twitter.com/trackmymeal">Twitter</a> and <a href="https://facebook.com/trackmymeal">Facebook</a>.</p>
-    </footer>
+        <p>Follow us on <a href="https://twitter.com/trackmymeal" target="_blank">Twitter</a> and <a href="https://facebook.com/trackmymeal" target="_blank">Facebook</a>.</p>
+      </footer>
 </body>
 </html>
