@@ -6,6 +6,35 @@
     <title>Track My Meal</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Track My Meal</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <h2>Welcome to Track My Meal</h2>
+    </header>
+    <main>
+        <section>
+            <h2>Track Your Meals</h2>
+            <p>Use our app to log your meals and track your nutrition.</p>
+            <form action="submit_meal.php" method="POST">
+                <label for="">order id/name</label>
+                <input type="text" id="order_id" name="order_id" required>
+                <br>
+                <label for="">contact no.</label>
+                <input type="tel" id="contact_no" name="contact_no" required>
+                <br>
+                <input type="button" value="Where`s my meal" onclick="submitForm()">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Track My Meal. All rights reserved.</p>
+        <p>Follow us on <a href="https://twitter.com/trackmymeal">Twitter</a> and <a href="https://facebook.com/trackmymeal">Facebook</a>.</p>
+    </footer>
 </body>
 </html>
