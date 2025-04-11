@@ -4,59 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Track My Meal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+   
 <body>
+
     <header>
-        <h1>Track My Meal</h1>
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><button><a href="login.html">Login</a></button></li>
-          </ul>
-        </nav>
-        <h2>Welcome to Track My Meal</h2>
+        <div class="navbar">
+          <h1>Track My Meal</h1>
+          <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="#order-tracker">Track Order</a>
+          </div>
+          <div class="nav-buttons">
+            <a href="restaurant_dashboard.html">Restaurant Dashboard</a>
+          </div>
+        </div>
       </header>
     
-      <main>
+      <main id="main-content">
+        <h1 id="demo">demo text</h1>
+
         <section>
-          <h2>Track Your Meals</h2>
-          <p>Use our app to log your meals and track your nutrition.</p>
-          <form id="mealForm" action="submit_meal.php" method="POST">
-            <label for="order_id">Order ID / Name</label>
-            <input type="text" id="order_id" name="order_id" required>
-    
+            <h2>Check Your Order</h2>
+            <label for="order_id">Enter Order ID:/Name</label><br>
+            <input type="text" id="order_id" placeholder="e.g., #A10234" required>
+            <br>
             <label for="contact_no">Contact No.</label>
-            <input type="tel" id="contact_no" name="contact_no" required>
-    
-            <button type="button" onclick="submitForm()">Where's my meal?</button>
-          </form>
-        </section>
+            <br>
+            <input type="tel" id="contact_no" name="contact_no" placeholder="contact_no" required>
+            <br>
+            
+            <button onclick="checkOrder()">Where's my meal?</button>
+          </section>
     
         <section id="tracker">
-          <div id="timer">
-            <h3>Timer</h3>
-            <!-- <svg id="timer-loader" viewBox="0 0 50 50">
-              <circle class="loader-circle" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
-            </svg> -->
-            <p id="time">00:00</p>
-          </div>
+            <section id="order-tracker">
+                <h2>Order Status</h2>
+                <p id="status">Waiting for input...</p>
+      
+                <h3>Estimated Time Remaining</h3>
+                <p id="timer">--:--</p>
+      
+                <h3>Pickup Notification</h3>
+                <p id="notification">You will be notified here when your meal is ready.</p>
+          </section>
     
-          <div id="meal-status">
-            <h3>Meal Status</h3>
-            <p id="status">Pending</p>
-          </div>
-    
-          <div id="orderDetails">
-            <h3>Order Details</h3>
-            <p id="orderId">Order ID: 12345</p>
-            <p id="name">Name: John Doe</p>
-            <p id="address">Restaurant Name</p>
-            <p id="contact">Contact No: 9876543210</p>
-            <p id="meal">Meal: Grilled Chicken Salad</p>
-            <p id="quantity">Quantity: 2</p>
-          </div>
+            <div id="orderDetails">
+                <h3>Order Details</h3>
+                <p id="orderId">Order ID: 12345</p>
+                <p id="name">Name: John Doe</p>
+                <p id="address">Restaurant Name</p>
+                <p id="contact">Contact No: 9876543210</p>
+                <p id="meal">Meal: Grilled Chicken Salad</p>
+                <p id="quantity">Quantity: 2</p>
+            </div>
         </section>
     
         <section id="why_choose_us">
@@ -73,5 +77,7 @@
         <p>&copy; 2023 Track My Meal. All rights reserved.</p>
         <p>Follow us on <a href="https://twitter.com/trackmymeal" target="_blank">Twitter</a> and <a href="https://facebook.com/trackmymeal" target="_blank">Facebook</a>.</p>
       </footer>
+
+      <script src="script.js"></script>
 </body>
 </html>
