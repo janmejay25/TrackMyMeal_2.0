@@ -1,83 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Track My Meal</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Order Search</title>
 </head>
-   
 <body>
+  <h2>Search Your Order</h2>
+  
+  <form id="searchForm">
+    <label for="order_id">Enter Order ID:</label>
+    <input type="text" id="order_id" name="order_id" required>
+    <button type="submit">Search</button>
+  </form>
 
-    <header>
-        <div class="navbar">
-          <h1>Track My Meal</h1>
-          <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="#order-tracker">Track Order</a>
-          </div>
-          <div class="nav-buttons">
-            <a href="restaurant_dashboard.html">Restaurant Dashboard</a>
-          </div>
-        </div>
-      </header>
-    
-      <main id="main-content">
-        <h1 id="demo">demo text</h1>
+  <div id="result"></div>
 
-        <section>
-            <h2>Check Your Order</h2>
-            <label for="order_id">Enter Order ID:/Name</label><br>
-            <input type="text" id="order_id" placeholder="e.g., #A10234" required>
-            <br>
-            <label for="contact_no">Contact No.</label>
-            <br>
-            <input type="tel" id="contact_no" name="contact_no" placeholder="contact_no" required>
-            <br>
-            
-            <button onclick="checkOrder()">Where's my meal?</button>
-          </section>
-    
-        <section id="tracker">
-            <section id="order-tracker">
-                <h2>Order Status</h2>
-                <p id="status">Waiting for input...</p>
-      
-                <h3>Estimated Time Remaining</h3>
-                <p id="timer">--:--</p>
-      
-                <h3>Pickup Notification</h3>
-                <p id="notification">You will be notified here when your meal is ready.</p>
-          </section>
-    
-            <div id="orderDetails">
-                <h3>Order Details</h3>
-                <p id="orderId">Order ID: 12345</p>
-                <p id="name">Name: John Doe</p>
-                <p id="address">Restaurant Name</p>
-                <p id="contact">Contact No: 9876543210</p>
-                <p id="meal">Meal: Grilled Chicken Salad</p>
-                <p id="quantity">Quantity: 2</p>
-            </div>
-        </section>
-    
-        <section id="why_choose_us">
-          <h2>Why Choose Us?</h2>
-          <ul>
-            <li>Easy meal tracking</li>
-            <li>Nutrition insights</li>
-            <li>User-friendly interface</li>
-          </ul>
-        </section>
-      </main>
-    
-      <footer>
-        <p>&copy; 2023 Track My Meal. All rights reserved.</p>
-        <p>Follow us on <a href="https://twitter.com/trackmymeal" target="_blank">Twitter</a> and <a href="https://facebook.com/trackmymeal" target="_blank">Facebook</a>.</p>
-      </footer>
-
-      <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
