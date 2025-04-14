@@ -2,20 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Order Search</title>
+  <title>Track My Meal</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scriptmain.js" defer></script>
 </head>
 <body>
-  <h2>Search Your Order</h2>
-  
-  
-  <form id="searchForm">
-    <label for="order_id">Enter Order ID:</label>
-    <input type="text" id="order_id" name="order_id" required>
-    <button type="submit">Search</button>
-  </form>
 
-  <div id="result"></div>
+  <nav>
+    <h1>Track My Meal</h1>
+    <a href="login.html">Login</a>
+    <a href="dashboard.html">Restaurant Dashboard</a>
+  </nav>
 
-  <script src="script.js"></script>
+  <div class="container">
+    <form id="orderForm">
+      <input type="text" id="order_id" name="order_id" placeholder="Order ID" required>
+      <input type="text" id="contact_no" name="contact_no" placeholder="Contact Number" required>
+      <input type="button" value="Where's my meal?" onclick="fetchOrder(); fetchAndStartCountdown();">
+    </form>
+
+    <div id="timer" style="display:none;">
+      <h3>Remaining Time:</h3>
+      <div id="time">00:00</div>
+    </div>
+    <!-- <div class="countdown-container" id="countdown-container" style="display:none;">
+      <svg width="200" height="200">
+        <circle class="circle-bg" cx="100" cy="100" r="90"></circle>
+        <circle class="circle-progress" id="progress" cx="100" cy="100" r="90"
+          stroke-dasharray="565.48"
+          stroke-dashoffset="0"></circle>
+      </svg>
+      <div class="time-text" id="timeText">00:00</div>
+    </div> -->
+    
+
+    <div id="orderDetails" style="display:none;">
+      <h3>Order Details</h3>
+      <p id="orderId"></p>
+      <p id="name"></p>
+      <p id="meal"></p>
+      <p id="quantity"></p>
+      <p id="restaurant"></p>
+      <p id="contact"></p>
+    </div>
+  </div>
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,5 +16,120 @@
   <div id="result"></div>
 
   <script src="script.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SVG Circular Countdown Timer</title>
+  <style>
+    body {
+      background: #2c2542;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 60px;
+    }
+    .countdown-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+    svg {
+      transform: rotate(-90deg);
+    }
+    .circle-bg {
+      fill: none;
+      stroke: #444058;
+      stroke-width: 12;
+    }
+    .circle-progress {
+      fill: none;
+      stroke: #ff5e57;
+      stroke-width: 12;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s linear;
+    }
+    .time-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 32px;
+      font-weight: bold;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>SVG Circular Countdown</h2>
+
+  <label for="minutes">Enter minutes:</label>
+  <input type="number" id="minutes" min="1" value="5">
+  <button onclick="startCountdown()">Start</button>
+
+  <div class="countdown-container" id="countdown-container" style="display:none;">
+    <svg width="200" height="200">
+      <circle class="circle-bg" cx="100" cy="100" r="90"></circle>
+      <circle class="circle-progress" id="progress" cx="100" cy="100" r="90"
+        stroke-dasharray="565.48"
+        stroke-dashoffset="0"></circle>
+    </svg>
+    <div class="time-text" id="timeText">00:00</div>
+  </div>
+
+  <script>
+    let countdownInterval;
+
+    function startCountdown() {
+      clearInterval(countdownInterval); // reset previous timer
+      const inputMinutes = parseInt(document.getElementById('minutes').value);
+      if (!inputMinutes || inputMinutes <= 0) {
+        alert("Enter a valid number of minutes.");
+        return;
+      }
+
+      const totalSeconds = inputMinutes * 60;
+      let remainingSeconds = totalSeconds;
+
+      document.getElementById('countdown-container').style.display = 'block';
+
+      const circle = document.getElementById('progress');
+      const radius = 90;
+      const circumference = 2 * Math.PI * radius;
+      circle.style.strokeDasharray = circumference;
+      circle.style.strokeDashoffset = 0;
+
+      function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      }
+
+      function updateTimer() {
+        document.getElementById('timeText').innerHTML = formatTime(remainingSeconds);
+
+        const offset = circumference - (remainingSeconds / totalSeconds) * circumference;
+        circle.style.strokeDashoffset = offset;
+
+        if (remainingSeconds <= 0) {
+          clearInterval(countdownInterval);
+          document.getElementById('timeText').innerHTML = '00:00';
+        }
+        remainingSeconds--;
+      }
+
+      updateTimer(); // first call immediately
+      countdownInterval = setInterval(updateTimer, 1000);
+    }
+  </script>
+
 </body>
 </html>
