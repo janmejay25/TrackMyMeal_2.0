@@ -1,0 +1,5 @@
+restaurant page link
+http://localhost/final_with_frontend/resturantDashboard/index.html 
+
+user page link
+http://localhost/final_with_frontend/index.html
