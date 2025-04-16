@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GreenEnergy</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8fafa;
+    color: #222;
+  }
+  
+  .navbar {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+  
+  .navbar .logo {
+    font-size: 1.2rem;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #222;
+  }
+  
+  .login-btn {
+    background: #0f0;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 2rem;
+    background: linear-gradient(to right, #e6fff2, #f0f9ff);
+  }
+  
+  .hero-text {
+    max-width: 45%;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-text p {
+    margin-bottom: 1rem;
+  }
+  
+  .cta {
+    background: #00c851;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .hero-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  section {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  
+  .cards, .vendor-list, .resource-grid {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+  .card, .vendor-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+    width: 250px;
+    text-align: left;
+  }
+  
+  .vendor-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tags span {
+    background: #d4f7d4;
+    padding: 2px 8px;
+    margin-right: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: auto;
+    text-align: left;
+  }
+  
+  form input, form select, form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  form button {
+    background: #00c851;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .resource-grid1 {
+    justify-content: space-around;
+    border: 2px solid #000000;
+    box-shadow: #9c9c9c 0px 0px 10px;
+    border-radius: 12px;
+    padding: 1rem;  
+  }
+  
+  .resource-grid2 {
+    justify-content: space-around;
+    border: 2px solid #000000;
+    box-shadow: #9c9c9c 0px 0px 10px;
+    border-radius: 12px;
+    padding: 1rem;  
+  }
+  .resource-grid ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contact form {
+    margin-top: 2rem;
+  }
+  .hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  list-style: none;
+  background: #333;
+  padding: 10px;
+}
+
+.navbar li {
+  display: inline;
+}
+
+.login-btn {
+  background: #007BFF;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  width: 300px;
+  border-radius: 8px;
+  position: relative;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  background: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+  
+  /* .modal {
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+  
+  overflow: auto;
+
+  } */
+/*   
+  .modal.hidden {
+    display: none;
+  } */
+  
+  /* .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 300px;
+    position: relative;
+  } */
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+  }
+  .hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">🌱 <strong>GreenEnergy</strong></div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#vendors">Vendors</a></li>
+        <li><a href="#requirement">Requirements</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="loginBtn" class="login-btn">Login</button></li>
+      </ul>
+    </nav>
+  </header>
+  
+  </script>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Embrace Green Energy Solutions <style> 
+        .hero-text h1 {
+          font-size: 2.5rem;
+          color: #2c3e50;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        .hero-text p {
+          font-size: 1.2rem;
+          color: #34495e;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        .cta {
+          background-color: #27ae60;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 5px;
+          border: none;
+          cursor: pointer;
+        }
+      </style></h1>
+      <p>Discover sustainable energy solutions that power our future while protecting our planet.</p>
+      <button class="cta">Get Started</button>
+    </div>
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+        alt="Solar Panel">
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>About Green Energy</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>☀ Solar Energy</h3>
+        <p>Harness the power of the sun with modern solar technology solutions.</p>
+      </div>
+      <div class="card">
+        <h3>🌬 Wind Power</h3>
+        <p>Clean, renewable energy from wind farms and turbines.</p>
+      </div>
+      <div class="card">
+        <h3>💧 Hydroelectric</h3>
+        <p>Sustainable power generated from flowing water sources.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vendors Section -->
+  <section id="vendors" class="vendors-section">
+    <div class="vendors-container" >
+      <h2 class="vendors-title">Our Trusted Vendors</h2>
+      <div class="vendors-grid" style="display: flex; flex-direction: row; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px;">
+  
+        <div class="vendor-card">
+          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276" alt="Tata Power Solar" class="vendor-image">
+          <h3 class="vendor-name">Tata Power Solar</h3>
+          <p class="vendor-description">Leading solar power solutions provider in India</p>
+          <div class="vendor-details">
+            <p><i class="fas fa-phone"></i> +91 1800 419 8777</p>
+            <p><i class="fas fa-envelope"></i> connect@tatapower.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</p>
+          </div>
+          <div class="vendor-expertise">
+            <h4>Expertise:</h4>
+            <span>Solar Panels</span>
+            <span>EPC Services</span>
+            <span>Rooftop Solutions</span>
+          </div>
+        </div>
+  
+        <div class="vendor-card">
+          <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d" alt="Adani Solar" class="vendor-image">
+          <h3 class="vendor-name">Adani Solar</h3>
+          <p class="vendor-description">Premium solar panel manufacturer and solutions provider</p>
+          <div class="vendor-details">
+            <p><i class="fas fa-phone"></i> +91 79 2555 5555</p>
+            <p><i class="fas fa-envelope"></i> solar@adani.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Ahmedabad, Gujarat</p>
+          </div>
+          <div class="vendor-expertise">
+            <h4>Expertise:</h4>
+            <span>Solar Manufacturing</span>
+            <span>Grid Solutions</span>
+            <span>Solar Parks</span>
+          </div>
+        </div>
+  
+        <div class="vendor-card">
+          <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7" alt="ReNew Power" class="vendor-image">
+          <h3 class="vendor-name">ReNew Power</h3>
+          <p class="vendor-description">India's leading renewable energy company</p>
+          <div class="vendor-details">
+            <p><i class="fas fa-phone"></i> +91 124 489 6670</p>
+            <p><i class="fas fa-envelope"></i> info@renewpower.in</p>
+            <p><i class="fas fa-map-marker-alt"></i> Gurugram, Haryana</p>
+          </div>
+          <div class="vendor-expertise">
+            <h4>Expertise:</h4>
+            <span>Wind Energy</span>
+            <span>Solar Power</span>
+            <span>Hybrid Solutions</span>
+          </div>
+        </div>
+  
+        <div class="vendor-card">
+          <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51" alt="Suzlon Energy" class="vendor-image">
+          <h3 class="vendor-name">Suzlon Energy</h3>
+          <p class="vendor-description">Pioneer in wind energy solutions</p>
+          <div class="vendor-details">
+            <p><i class="fas fa-phone"></i> +91 20 6702 2000</p>
+            <p><i class="fas fa-envelope"></i> contact@suzlon.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</p>
+          </div>
+          <div class="vendor-expertise">
+            <h4>Expertise:</h4>
+            <span>Wind Turbines</span>
+            <span>Renewable Solutions</span>
+            <span>Power Generation</span>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Requirements Form -->
+  <section class="requirement" id="requirement">
+    <h2>Submit Your Requirements</h2>
+    <form style="box-sizing: border-box; padding: 20px; border-radius: 20px;box-shadow: #7a6a6a; background-color: #ffffff; max-width: 600px; margin: auto;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div>
+  <style>
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-label {
+      color: #4a5568;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #cbd5e0;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: #38a169;
+    }
+  </style>
+
+  <div class="form-grid">
+    <div class="form-group">
+      <label class="form-label">Full Name *</label>
+      <input type="text" name="name" required class="form-input" style="width: 95%; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid #cbd5e0; font-size: 1rem; transition: border-color 0.3s ease; outline: none;">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Phone Number *</label>
+      <input type="tel" name="phone" required class="form-input"style="width: 89%; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid #cbd5e0; font-size: 1rem; transition: border-color 0.3s ease; outline: none;">
+    </div>
+  </div>
+</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div>
+            <label class="form-label">Email Address *</label>
+            <input type="email" name="email" required class="form-input"style="width: 95%; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid #cbd5e0; font-size: 1rem; transition: border-color 0.3s ease; outline: none;">
+            </div>
+            <div>
+            <label class="form-label">Location *</label>
+            <input type="text" name="location" required class="form-input"style="width: 95%; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid #cbd5e0; font-size: 1rem; transition: border-color 0.3s ease; outline: none;">
+            </div>
+        </div>
+        <label class="form-label">Select a service*</label>
+      <select><option>Select a service</option>
+        <option>Solar Panel Installation</option>
+        <option>Wind Energy Solutions</option>
+        <option>Energy Storage Systems</option>
+        <option>Energy Efficiency Audits</option>
+        <option>Consultation Services</option>
+      </select>
+      </div>
+    </div>
+    <label class="form-label">Select a service*</label>
+      <select><option>Select property type</option>
+        <option>Residential</option>
+        <option>Commercial</option>
+        <option>Industrial</option>
+        <option>Agricultural</option>
+        <option>Institutional</option>
+      </select>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <label class="form-label">Property Size (in sq. ft.)</label>
+        <input type="text" placeholder="" style="width: 95%; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid #cbd5e0; font-size: 1rem; transition: border-color 0.3s ease; outline: none;">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <label class="form-label">Current Monthly Energy Bill (₹)</label>
+      <input type="text" placeholder="" style="width: 95%; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid #cbd5e0; font-size: 1rem; transition: border-color 0.3s ease; outline: none;">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+        <label class="form-label">Additional Requirements</label>
+      <textarea  placeholder="Additional Requirements" style="width: 95%; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid #cbd5e0; font-size: 1rem; transition: border-color 0.3s ease; outline: none;"></textarea>
+
+      </textarea>
+        </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <label class="form-label">Preferred Contact Method</label>
+      <select><option>Preferred Contact Method</option>
+        <option>Phone</option>
+        <option>Email</option>
+        <option>WhatsApp</option>
+        <option>In-Person</option>
+        <option>Video Call</option>
+    </select>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+        <label class="form-label">Preferred Contact Time</label>
+        <select><option>Preferred Contact Time</option>
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
+            <option>Anytime</option>
+        </select>
+        </div>
+      <label><input type="checkbox"> I agree to be contacted by service providers</label>
+      <button type="submit">Submit Requirements</button>
+    </form>
+  </section>
+
+  <!-- Resources Section -->
+  <section class="resources" id ="resources">
+    <h2>Resources</h2>
+    <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px;">
+    <div class="resource-grid1" >
+      <div>
+        <h4>Educational Materials</h4>
+        <ul>
+          <li><i class="fas fa-book mr-2 text-green-500"></i>Green Energy Basics</li>
+          <li>Installation Guides</li>
+          <li>Tutorial Videos</li>
+        </ul>
+      </div>
+    </div>
+      <div class="resource-grid2" >
+      <div>
+        <h4>Tools & Calculators</h4>
+        <ul>
+          <li>Energy Savings Calculator</li>
+          <li>Solar Panel Estimator</li>
+          <li>ROI Analysis Tool</li>
+        </ul>
+      </div>
+    </div>
+</div>
+</div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact" id="contact">
+    <div style="background-color: rgba(128, 128, 128, 0.041);">
+        <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <textarea placeholder="Message"></textarea>
+             <button type="submit">Send Message</button>
+            </form>
+    </div>
+  </section>
+
+  <!-- Auth Section for Login/Signup Modals -->
+  <section id="auth-modals">
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content">
+          <span id="closeLogin" class="close">&times;</span>
+          <h2>Login</h2>
+          <form id="loginForm">
+            <input type="email" placeholder="Email" required />
+            <input type="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+          </form>
+          <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+      </div>
+  </section>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal hidden">
+      <div class="modal-content">
+        <span id="closeSignup" class="close">&times;</span>
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Password" required />
+          <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="#" id="loginLink">Login</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts (AOS before main.js) -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
