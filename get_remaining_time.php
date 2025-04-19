@@ -2,12 +2,9 @@
 header("Content-Type: application/json");
 date_default_timezone_set("Asia/Kolkata");
 
-
-
 $servername = "localhost";
 $username = "root";
 $password = "Janmejay@2005";
-
 $dbname = "trackmymeal";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
